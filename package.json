@@ -5,5 +5,32 @@
   "main": "index.js",
   "repository": "git@github.com:rsmeral/node-red-contrib-scd30.git",
   "author": "Ron Smeral <ron.smeral@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node-red": "^0.20.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "scd30-node": "^1.0.2"
+  },
+  "node-red": {
+    "nodes": {
+      "read-measurement": "dist/nodes/read-measurement.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "dist/*",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ]
 }
