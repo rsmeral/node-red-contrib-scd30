@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  RED.nodes.registerType('read-measurement', {
+    category: 'sensor',
+    defaults: {
+      scd30Config: {value: '', required: true, type: 'scd30-config'},
+      name: {value: ''}
+    },
+    label: function () {
+      return this.name || 'Read SCD30 Measurement'
+    },
+    inputs: 1,
+    outputs: 1,
+    paletteLabel: 'Read SCD30 Measurement',
+    icon: 'font-awesome/fa-leaf'
+  });
+</script>
+
+<script type="text/html" data-template-name="read-measurement">
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-config-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="read-measurement">
+  <p>Reads measurement of CO2, temperature, and humidity.</p>
+  <h3>Outputs</h3>
+    <dl class="message-properties">
+      <dt>payload
+        <span class="property-type">
+          <pre>
+            <code>
+              {
+                co2Concentration: number;
+                temperature: number;
+                relativeHumidity: number;
+              }
+            </code>
+          </pre>
+        </span>
+      </dt>
+    </dl>
+</script>

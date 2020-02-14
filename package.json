@@ -14,7 +14,8 @@
   },
   "node-red": {
     "nodes": {
-      "read-measurement": "dist/nodes/read-measurement.js"
+      "read-measurement": "nodes/read-measurement.js",
+      "scd30-config": "nodes/scd30-config.js"
     }
   },
   "files": [

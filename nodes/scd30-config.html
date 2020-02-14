@@ -1,0 +1,22 @@
+<script type="text/javascript">
+  RED.nodes.registerType('scd30-config', {
+    category: 'config',
+    defaults: {
+      busNumber: {value: 1, required: true, validate: RED.validators.number()},
+    },
+    label: function () {
+      return 'SCD30 on /dev/i2c-' + this.busNumber;
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="scd30-config">
+  <div class="form-row">
+    <label for="node-config-input-busNumber"><i class="fa fa-plug"></i> I2C Bus Number</label>
+    <input type="text" id="node-config-input-busNumber">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="scd30-config">
+  <p>Sets the I2C bus number for all SCD30 nodes.</p>
+</script>
