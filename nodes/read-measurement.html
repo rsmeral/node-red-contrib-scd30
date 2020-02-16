@@ -6,37 +6,38 @@
       name: {value: ''}
     },
     label: function () {
-      return this.name || 'Read SCD30 Measurement'
+      return this.name || 'scd30'
     },
     inputs: 1,
     outputs: 1,
-    paletteLabel: 'Read SCD30 Measurement',
+    paletteLabel: 'scd30',
     icon: 'font-awesome/fa-leaf'
   });
 </script>
 
 <script type="text/html" data-template-name="read-measurement">
   <div class="form-row">
-    <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
-    <input type="text" id="node-config-input-name" placeholder="Name">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-scd30Config"><i class="fa fa-dot-circle-o"></i> I2C bus</label>
+    <input type="text" id="node-input-scd30Config" />
   </div>
 </script>
 
 <script type="text/html" data-help-name="read-measurement">
-  <p>Reads measurement of CO2, temperature, and humidity.</p>
+  <p>Reads measurement of CO2 (ppm), temperature (°C), and humidity (%).</p>
   <h3>Outputs</h3>
     <dl class="message-properties">
       <dt>payload
         <span class="property-type">
-          <pre>
-            <code>
-              {
-                co2Concentration: number;
-                temperature: number;
-                relativeHumidity: number;
-              }
-            </code>
-          </pre>
+          <pre><code>{
+  co2Concentration: number;
+  temperature: number;
+  relativeHumidity: number;
+}</code></pre>
         </span>
       </dt>
     </dl>
