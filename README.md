@@ -8,7 +8,7 @@ Uses [scd30-node](https://github.com/rsmeral/scd30-node).
 
 Find the `scd30` node in the `sensor` category in the palette, and use in your flow.
 
-![SCD30 node](scd30-node.png)
+![SCD30 node](https://github.com/rsmeral/node-red-contrib-scd30/blob/master/scd30-node.png?raw=true)
 
 The node replaces the message payload with an object containing the measured values:
 ```typescript
