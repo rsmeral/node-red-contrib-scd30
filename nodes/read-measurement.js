@@ -23,8 +23,10 @@ module.exports = function (RED) {
           return scd30.readMeasurement();
         })
         .then(function (measurement) {
-          msg.payload = measurement;
-          send(msg);
+          send({
+            topic: 'scd30',
+            payload: measurement
+          });
           node.status({fill: 'green', shape: 'dot', text: `${Math.round(measurement.co2Concentration)} ppm at ${formatDate(new Date())}`});
           done();
         })
