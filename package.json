@@ -14,7 +14,7 @@
     "sensor"
   ],
   "dependencies": {
-    "scd30-node": "^1.0.2"
+    "scd30-node": "^1.0.3"
   },
   "node-red": {
     "nodes": {
