@@ -14,12 +14,12 @@ module.exports = function (RED) {
   function ReadMeasurementNode(config) {
     RED.nodes.createNode(this, config);
     var node = this;
-
     this.on('input', function (msg, send, done) {
       var scd30Promise = RED.nodes.getNode(config.scd30Config).scd30;
 
-      scd30Promise
+      scd30Promise    
         .then(function (scd30) {
+          scd30.setAltitudeCompensation(config.altitude);
           return scd30.readMeasurement();
         })
         .then(function (measurement) {

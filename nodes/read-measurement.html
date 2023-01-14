@@ -3,7 +3,8 @@
     category: 'sensor',
     defaults: {
       scd30Config: {value: '', required: true, type: 'scd30-config'},
-      name: {value: ''}
+      name: {value: ''},
+      altitude: {value: 100, required: true, validate: RED.validators.number()},
     },
     label: function () {
       return this.name || 'scd30'
@@ -25,6 +26,12 @@
     <label for="node-input-scd30Config"><i class="fa fa-dot-circle-o"></i> I2C bus</label>
     <input type="text" id="node-input-scd30Config" />
   </div>
+
+  <div class="form-row">
+    <label for="node-input--altitude"><i class="fa fa-arrow-up"></i> altitude in meters</label>
+    <input type="text" id="node-input-altitude">
+  </div>
+
 </script>
 
 <script type="text/html" data-help-name="scd30-read-measurement">

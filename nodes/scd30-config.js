@@ -8,5 +8,6 @@ module.exports = function (RED) {
 
     this.scd30 = SCD30.connect(Number(config.busNumber));
   }
+
   RED.nodes.registerType(NODE_TYPE, SCD30ConfigNode);
 };
