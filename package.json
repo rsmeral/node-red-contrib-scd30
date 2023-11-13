@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-scd30",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node-RED node for reading measurements from Sensirion SCD30, the CO2, temperature, and humidity sensor.",
   "repository": "github:rsmeral/node-red-contrib-scd30",
   "author": "Ron Smeral <ron@smeral.net>",
@@ -14,18 +14,22 @@
     "sensor"
   ],
   "dependencies": {
-    "scd30-node": "^1.0.3"
+    "scd30-node": "^1.0.4"
   },
   "node-red": {
+    "version": ">=3.1.0",
     "nodes": {
-      "scd30-read-measurement": "nodes/read-measurement.js",
-      "scd30-config": "nodes/scd30-config.js"
+      "scd30": "nodes/scd30.js"
     }
   },
   "files": [
     "nodes/*",
+    "examples/*",
     "package.json",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
