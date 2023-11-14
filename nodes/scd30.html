@@ -4,9 +4,9 @@
     defaults: {
       name: { value: '' },
       busNumber: { value: 1, validate: RED.validators.number() },
-      measurementInterval: { value: 2, validate: RED.validators.number() },
-      tempOffset: { value: 0, validate: (val) => !Number.isNaN(Number(val))},
-      altitude: { value: 0, validate: RED.validators.number() },
+      measurementInterval: { value: 2, validate: (val) => !Number.isNaN(Number(val)) && Number(val) >= 2 && Number(val) <= 1800 },
+      tempOffset: { value: 0, validate: (val) => !Number.isNaN(Number(val)) },
+      altitude: { value: 0, validate: (val) => !Number.isNaN(Number(val)) && Number(val) >= 0 },
       asc: { value: true },
     },
     label: function () {
@@ -68,6 +68,11 @@
       </span>
     </dt>
   </dl>
+
+  <h3>Configuration</h3>
+  <p>
+    The "Measurement Interval" must be between 2 seconds and 1800 seconds.
+  </p>
 
   <h3>References</h3>
   <ul>

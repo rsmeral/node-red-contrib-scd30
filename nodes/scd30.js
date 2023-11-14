@@ -12,9 +12,6 @@ function formatDate(date) {
   });
 }
 
-const sleep = (duration) =>
-  new Promise((resolve) => setTimeout(resolve, duration));
-
 const SCD30Initializer = function (RED) {
   function SCD30Node(config) {
     this.scd30 = null;
