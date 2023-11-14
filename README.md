@@ -8,8 +8,6 @@ Uses [scd30-node](https://github.com/rsmeral/scd30-node).
 
 Find the `scd30` node in the `sensor` category in the palette, and use in your flow.
 
-![SCD30 node](https://github.com/rsmeral/node-red-contrib-scd30/blob/master/scd30-node.png?raw=true)
-
 The node replaces the message payload with an object containing the measured values:
 ```typescript
 {
@@ -21,15 +19,7 @@ The node replaces the message payload with an object containing the measured val
 
 ### Requirements
 
-The SCD30 must be in continuous measurement mode and a measurement must be available when triggering this node. You can use [scd30-cli](https://github.com/rsmeral/scd30-cli) to set this up:
-```
-$ scd30-cli start-continuous-measurement
-Continuous measurement started.
-Ambient pressure compensation deactivated.
-
-$ scd30-cli set-measurement-interval 5
-Continuous measurement interval set to 5 seconds.
-```
+The SCD30 must be in continuous measurement mode and a measurement must be available when triggering this node.
 
 The measurement interval must be shorter than the interval at which you sample the sensor in Node-RED.
 
