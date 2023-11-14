@@ -1,0 +1,84 @@
+[
+    {
+        "id": "a10ce6647aa7d8d3",
+        "type": "tab",
+        "label": "CO2 concentration",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c2794e75b2708365",
+        "type": "inject",
+        "z": "a10ce6647aa7d8d3",
+        "name": "Every 5 seconds",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "213314aba21d8eb1"
+            ]
+        ]
+    },
+    {
+        "id": "60e9c11214962428",
+        "type": "debug",
+        "z": "a10ce6647aa7d8d3",
+        "name": "Log result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c933d225c87ea8c6",
+        "type": "comment",
+        "z": "a10ce6647aa7d8d3",
+        "name": "Continuous measurement",
+        "info": "# Continuous measurement\n\nIn the Continuous Measurement Mode, the SCD30 will make a measurement every 2 seconds,\nregardless of how frequently you send a message to the `SCD30` node.\n\nIf a message arrives before a measurement has been made, you'll see a `Data not ready` warning in the log.\n\nTo conserve power, you can increase the measurement interval.\n",
+        "x": 170,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "213314aba21d8eb1",
+        "type": "scd30",
+        "z": "a10ce6647aa7d8d3",
+        "name": "SCD30",
+        "busNumber": 1,
+        "measurementInterval": 2,
+        "tempOffset": 0,
+        "altitude": 0,
+        "asc": true,
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "60e9c11214962428"
+            ]
+        ]
+    }
+]
