@@ -1,0 +1,78 @@
+<script type="text/javascript">
+  RED.nodes.registerType('scd30', {
+    category: 'sensor',
+    defaults: {
+      name: { value: '' },
+      busNumber: { value: 1, validate: RED.validators.number() },
+      measurementInterval: { value: 2, validate: RED.validators.number() },
+      tempOffset: { value: 0, validate: (val) => !Number.isNaN(Number(val))},
+      altitude: { value: 0, validate: RED.validators.number() },
+      asc: { value: true },
+    },
+    label: function () {
+      return this.name || 'scd30'
+    },
+    inputs: 1,
+    outputs: 1,
+    paletteLabel: 'scd30',
+    icon: 'font-awesome/fa-leaf'
+  });
+</script>
+
+<script type="text/html" data-template-name="scd30">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-busNumber"><i class="fa fa-plug"></i> I2C Bus</label>
+    <input type="number" id="node-input-busNumber">
+  </div>
+
+  <fieldset>
+    <div class="form-row">
+      <label for="node-input-tempOffset"><i class="fa fa-thermometer-half"></i> Temperature Offset (°C)</label>
+      <input type="text" id="node-input-tempOffset">
+    </div>
+    <div class="form-row">
+      <label for="node-input-asc"><i class="fa fa-dashboard"></i> Automatic Self-calibration</label>
+      <input type="checkbox" id="node-input-asc" style="width: fit-content">
+    </div>
+    <div class="form-row">
+      <label for="node-input-tempOffset"><i class="fa fa-clock-o"></i> Measurement Interval (s)</label>
+      <input type="number" id="node-input-measurementInterval">
+    </div>
+    <div class="form-row">
+      <label for="node-input-asc"><i class="fa fa-arrow-up"></i> Altitude (MASL)</label>
+      <input type="number" id="node-input-altitude">
+    </div>
+  </fieldset>
+
+</script>
+
+<script type="text/html" data-help-name="scd30">
+  <p>Reads measurement of CO2 (ppm), temperature (°C), and humidity (%).</p>
+  <h3>Inputs</h3>
+    Input is ignored.
+  
+  <h3>Outputs</h3>
+  <dl class="message-properties">
+    <dt>payload
+      <span class="property-type">
+        <pre><code>{
+  co2Concentration: number;
+  temperature: number;
+  relativeHumidity: number;
+}</code></pre>
+      </span>
+    </dt>
+  </dl>
+
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://github.com/rsmeral/node-red-contrib-scd30">GitHub: node-red-contrib-scd30</a> – this package</li>
+    <li><a href="https://github.com/rsmeral/scd30-node">GitHub: scd30-node</a> – the underlying package providing access to SCD30</li>
+    <li><a href="https://www.sensirion.com/media/documents/4EAF6AF8/61652C3C/Sensirion_CO2_Sensors_SCD30_Datasheet.pdf">SCD30 Datasheet</a></li>
+  </ul>
+</script>
